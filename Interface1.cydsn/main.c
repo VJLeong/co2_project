@@ -10,7 +10,6 @@ void read_sensor_data();
 // Global variables
 FILE *file;
 char string_1[50];
-//float co2Concentration;
 uint8_t buffer[18]; // Buffer for 18 bytes of data
 
 void I2C_Write(uint8_t *data, uint8_t length) {
