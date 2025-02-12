@@ -1,0 +1,6 @@
+F:\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|02b6fceb-c4e9-425c-aeac-a28f8f182e70
+C:\Users\User\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|faad1229-ed82-4602-9af5-bef675b4116f
+F:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9c326979-52b7-4e95-ae1d-5504dd8231aa
+F:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c0c533df-ca2f-43cb-beae-726ee46def79
+F:\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|360b07b9-4834-4d0c-a104-72a614bc4c1f
+F:\Downloads\kicad\sandbox\Internal Chamber\SCD30\SCD30.cydsn\SCD30.cyprj|7c196f2d-5809-4c09-97c0-dd8ba5769c2b

@@ -1,6 +1,11 @@
 Generated_Source/
 .cydsn/Generated_Source/
 .cydsn/codegentemp/
+.CO2_Sensor_IDE.pretty/
+.Gerber/
+.Internal Chamber-backups/
+.SCD30/
+.SCD30 Footprint/
 .cydsn/*.rpt
 *.cywrk.*
 *.cyprj.*
@@ -14,3 +19,14 @@ Generated_Source/
 *.obj
 *.a
 *.o
+*.bak
+*.autosave
+*-backup.*
+*-cache.lib
+*-rescue.lib
+*-rescue.sch
+*.kicad_pcb-bak
+*.kicad_sch-bak
+fp-info-cache
+*.wrl
+*.step

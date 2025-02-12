@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "CO2_Sensor_IDE")(type "KiCad")(uri "${KIPRJMOD}/CO2_Sensor_IDE.kicad_sym")(options "")(descr ""))
+)
