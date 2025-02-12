@@ -1,0 +1,16 @@
+Generated_Source/
+.cydsn/Generated_Source/
+.cydsn/codegentemp/
+.cydsn/*.rpt
+*.cywrk.*
+*.cyprj.*
+*.aps
+*.dep
+*.bak
+*.log
+*.elf
+*.hex
+*.map
+*.obj
+*.a
+*.o
