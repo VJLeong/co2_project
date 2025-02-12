@@ -1,0 +1,6 @@
+D:\Downloads\SLED\Workspace01\Interface1.cydsn\Interface1.cyprj|3ed11938-acb3-47e1-a73b-1bf5d7de4ca1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5d7ba417-031d-4e02-8914-556e6f1aebf4
+C:\Users\user\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|7c78081b-fb14-4a67-9017-092fe5065bea
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e71b1145-aab5-45ea-8025-d6ceaf1e8d45
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f7ead0a5-edb8-4314-8641-78472dd3afe1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|be20cb6f-7d68-4e84-9e7a-5efc4eb3b8fc
