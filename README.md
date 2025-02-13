@@ -8,6 +8,9 @@ This objective is achieved through proper setting up of the hardware setup and e
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
 ## Changelog
+### 13/2/2025:
+  - Completed two tasks of three: Measure capacitance via PSoC
+  - Currently debugging capacitance value, current capacitance value too small!
 ### 12/2/2025: 
   - Uploaded PSoC Creator and Kicad project files into Github repo for the first time.
   - Completed one task of three: Interface SCD30 on PCB with PSoC 5LP to obtain CO2 concentration, temperature, and relative humidity levels (rh%)

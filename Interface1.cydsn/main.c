@@ -1,16 +1,25 @@
 #include "project.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+// Definitions
 #define SCD30_I2C_ADDRESS 0x61
+#define VREF 5.0
+#define ADC_MAX_VALUE 4095
+#define VTHRESHOLD (VREF * 0.63) // 63% charged up of capacitor
+#define R 10000.0 // 10k ohm resistor
+#define TIMER_RESOLUTION 2.0e-6
+#define CORRECTION_FACTOR 1.0e3
 
 // Function prototypes
 void I2C_Write(uint8_t *data, uint8_t length);
 void I2C_Read(uint8_t *data, uint8_t length);
 void read_sensor_data();
+void read_capacitance();
 // Global variables
-FILE *file;
-char string_1[50];
+char string_1[100];
 uint8_t buffer[18]; // Buffer for 18 bytes of data
+uint16 adcResult;
 
 void I2C_Write(uint8_t *data, uint8_t length) {
     I2C_1_MasterWriteBuf(SCD30_I2C_ADDRESS, data, length, I2C_1_MODE_COMPLETE_XFER);
@@ -42,10 +51,56 @@ void read_sensor_data()
     uint32_t rhBytes = ((uint32_t)rhBytesUpper << 16) | rhBytesLower;
     int rh = (int)*(float*)&rhBytes;
     
+//    float capacitance = read_capacitance();
+    
     if (co2Concentration != 0 && temperature != 0 && rh != 0)
     {
         sprintf(string_1, "CO2: %d ppm, Temperature: %d degrees, Relative Humidity: %d%%\n", co2Concentration, temperature, rh);
         UART_1_PutString(string_1);  // Send output via UART
+    }
+}
+
+void read_capacitance()
+{
+    uint32_t start_time, stop_time;
+    float capacitance, voltage;
+    
+    // Discharge capacitor first
+    ChargingPin_Write(0);
+    CyDelay(150);
+    voltage = 0; //Reset value
+    // Reset and start timer
+    Timer_1_WriteCounter(0);
+    Timer_1_Start();
+    // Charge up capacitor
+    ChargingPin_Write(1);
+    start_time = Timer_1_ReadCounter();
+    
+    while (voltage < VTHRESHOLD)
+    {
+        // Start ADC conversion
+        ADC_SAR_1_StartConvert();
+        
+        // Wait for the conversion to complete
+        do
+        {
+            adcResult = ADC_SAR_1_IsEndConversion(ADC_SAR_1_RETURN_STATUS);
+        } while (adcResult == 0);
+
+        // Read the result (using GetResult16 for a wider range)
+        adcResult = ADC_SAR_1_GetResult16(); 
+        // Map resulting input voltage
+        voltage = (VREF/ADC_MAX_VALUE)*adcResult;
+    }
+    stop_time = Timer_1_ReadCounter();
+    Timer_1_Stop();
+    float time_elapsed = (stop_time - start_time) * TIMER_RESOLUTION;
+    capacitance = time_elapsed / R * CORRECTION_FACTOR;
+    if (capacitance != 0)
+    {
+        sprintf(string_1, "Capacitance: %d.%06d nF\n", (int)(capacitance * 1e9), (int)((capacitance * 1e9) * 1000000) % 1000000);
+        UART_1_PutString(string_1);
+        CyDelay(100);
     }
 }
 
@@ -55,6 +110,8 @@ int main(void) {
     CyGlobalIntEnable;
     I2C_1_Start();
     UART_1_Start();
+    ADC_SAR_1_Start();
+    Timer_1_Start();
 
     // Start continuous measurement with 0x0010 command and pressure 0x0000
     uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
@@ -62,12 +119,14 @@ int main(void) {
     CyDelay(1000); // Allow sensor initialization
     UART_1_PutString("Starting sensor reading...\n");
 
-    for(;;) {
+    for(;;) 
+    {
         // Command to read data (0x0300)
         uint8_t readCmd[2] = {0x03, 0x00};
         I2C_Write(readCmd, sizeof(readCmd));
         CyDelay(300); // Wait for command processing
         read_sensor_data();
         CyDelay(1000); // Match measurement interval
+        read_capacitance();
     }
 }

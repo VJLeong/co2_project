@@ -260,13 +260,14 @@
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="5c1e3b7d-48b2-42e9-8868-2ccf69702e94" value="SW1" />
       <Data key="5d18c50b-5bc3-42a9-8a1a-82227f486da5" value="Start" />
-      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="ADC_IN" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="Capacitance" />
       <Data key="9a1f4ba2-17e5-4d66-b394-8a9563355205" value="Vcharge" />
       <Data key="48b499f3-5f57-4321-a22f-61f03b226c56" value="Start" />
       <Data key="77bb532c-6a1e-4eee-b1dc-91b0698dce0a" value="Vdischarge" />
       <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
-      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="LED" />
+      <Data key="cc80a9da-fa4d-4f40-83d1-2567c5d083f7/16a808f6-2e13-45b9-bce0-b001c8655113" value="ADC_SAR_1_Bypass" />
+      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="ChargingPin" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
     </Group>
   </Group>
@@ -3394,7 +3395,7 @@
     </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
-        <Data key="Port Format" value="0,0" />
+        <Data key="Port Format" value="0,1" />
       </Group>
     </Group>
     <Group key="9a1f4ba2-17e5-4d66-b394-8a9563355205">
@@ -3424,7 +3425,7 @@
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
       <Group key="0">
-        <Data key="Port Format" value="2,1" />
+        <Data key="Port Format" value="2,3" />
       </Group>
     </Group>
     <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
