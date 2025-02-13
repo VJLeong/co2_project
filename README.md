@@ -7,6 +7,11 @@ The main objective of the project is to introduce Artificial Intelligence (AI) a
 This objective is achieved through proper setting up of the hardware setup and environment of the carbon dioxide sensor. Which is achieved by constructing of appropriate PCB and testing through external microcontroller units. <br>
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
+## Changelog
+### 12/2/2025: 
+  - Uploaded PSoC Creator and Kicad project files into Github repo for the first time.
+  - Completed one task of three: Interface SCD30 on PCB with PSoC 5LP to obtain CO2 concentration, temperature, and relative humidity levels (rh%)
+
 ## Reference Materials
 SCD30 item website: https://sensirion.com/products/catalog/SCD30 <br>
 SCD30 Datasheet: https://sensirion.com/media/documents/4EAF6AF8/61652C3C/Sensirion_CO2_Sensors_SCD30_Datasheet.pdf <br>
