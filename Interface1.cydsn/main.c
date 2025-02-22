@@ -7,7 +7,8 @@
 #define VREF 5.0
 #define ADC_MAX_VALUE 4095
 #define VTHRESHOLD (VREF * 0.63) // 63% charged up of capacitor
-#define R 10000.0 // 10k ohm resistor
+#define R1 1000.0 // 1k ohm resistor
+#define R2 10000.0 // 10k ohm resistor
 #define TIMER_RESOLUTION 2.0e-6
 #define CORRECTION_FACTOR 1.0e3
 
@@ -18,6 +19,7 @@ void read_sensor_data();
 void read_capacitance();
 // Global variables
 char string_1[100];
+double capMeasureArray[5];
 uint8_t buffer[18]; // Buffer for 18 bytes of data
 uint16 adcResult;
 
@@ -62,46 +64,19 @@ void read_sensor_data()
 
 void read_capacitance()
 {
-    uint32_t start_time, stop_time;
-    float capacitance, voltage;
+    // 1) Clear the counter
+    Counter_1_WriteCounter(0);  
     
-    // Discharge capacitor first
-    ChargingPin_Write(0);
-    CyDelay(150);
-    voltage = 0; //Reset value
-    // Reset and start timer
-    Timer_1_WriteCounter(0);
-    Timer_1_Start();
-    // Charge up capacitor
-    ChargingPin_Write(1);
-    start_time = Timer_1_ReadCounter();
+    // 2) Wait a known time (e.g., 1 second)
+    CyDelay(1000);  // 1000 ms
     
-    while (voltage < VTHRESHOLD)
-    {
-        // Start ADC conversion
-        ADC_SAR_1_StartConvert();
-        
-        // Wait for the conversion to complete
-        do
-        {
-            adcResult = ADC_SAR_1_IsEndConversion(ADC_SAR_1_RETURN_STATUS);
-        } while (adcResult == 0);
-
-        // Read the result (using GetResult16 for a wider range)
-        adcResult = ADC_SAR_1_GetResult16(); 
-        // Map resulting input voltage
-        voltage = (VREF/ADC_MAX_VALUE)*adcResult;
-    }
-    stop_time = Timer_1_ReadCounter();
-    Timer_1_Stop();
-    float time_elapsed = (stop_time - start_time) * TIMER_RESOLUTION;
-    capacitance = time_elapsed / R * CORRECTION_FACTOR;
-    if (capacitance != 0)
-    {
-        sprintf(string_1, "Capacitance: %d.%06d nF\n", (int)(capacitance * 1e9), (int)((capacitance * 1e9) * 1000000) % 1000000);
-        UART_1_PutString(string_1);
-        CyDelay(100);
-    }
+    // 3) Read how many pulses arrived in that time
+    uint32_t pulseCount = Counter_1_ReadCounter();
+    // Calculate the capacitance connected
+    double capMeasured = 1.44/((R1 + 2*R2)*pulseCount) * 1.0e9;
+    // 4) That count is your frequency in Hz (since you waited 1 second)
+    sprintf(string_1,"Frequency = %lu Hz, Capacitance: %d nF\n", (unsigned long)pulseCount, (int)capMeasured);
+    UART_1_PutString(string_1);
 }
 
 
@@ -112,21 +87,22 @@ int main(void) {
     UART_1_Start();
     ADC_SAR_1_Start();
     Timer_1_Start();
+    Counter_1_Start();
 
-    // Start continuous measurement with 0x0010 command and pressure 0x0000
-    uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
-    I2C_Write(startCmd, sizeof(startCmd));
-    CyDelay(1000); // Allow sensor initialization
-    UART_1_PutString("Starting sensor reading...\n");
+//    // Start continuous measurement with 0x0010 command and pressure 0x0000
+//    uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
+//    I2C_Write(startCmd, sizeof(startCmd));
+//    CyDelay(1000); // Allow sensor initialization
+//    UART_1_PutString("Starting sensor reading...\n");
 
     for(;;) 
     {
-        // Command to read data (0x0300)
-        uint8_t readCmd[2] = {0x03, 0x00};
-        I2C_Write(readCmd, sizeof(readCmd));
-        CyDelay(300); // Wait for command processing
-        read_sensor_data();
-        CyDelay(1000); // Match measurement interval
+//        // Command to read data (0x0300)
+//        uint8_t readCmd[2] = {0x03, 0x00};
+//        I2C_Write(readCmd, sizeof(readCmd));
+//        CyDelay(300); // Wait for command processing
+//        read_sensor_data();
+//        CyDelay(1000); // Match measurement interval
         read_capacitance();
     }
 }

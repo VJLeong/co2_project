@@ -131,6 +131,14 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capacitance_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capacitance.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capacitance.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerOutput_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerOutput.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerOutput.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_2.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\Downloads\SLED\Workspace01\Interface1.cydsn\Export\ARM_GCC_Generic">

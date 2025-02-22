@@ -1,7 +1,6 @@
-D:\Downloads\SLED\Workspace01\Interface1.cydsn\Interface1.cyprj|0820fe7d-1b39-4ef6-b7a4-23c320e4ec4d
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f1ba1e02-87ed-44a5-a831-ca838b968269
-C:\Users\user\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|7cb395ac-81e0-4980-8b3a-ab71025cca22
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|319adeec-f1da-468d-8fb1-d7a1e3bdbcc4
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|71ff3a95-4d56-43b6-93e7-d48cf1b770f2
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|47eb2c9c-9253-4607-ac93-412f56c82fb1
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc3\AnalogDevice\PSoC35AnalogDevice.cylib\PSoC35AnalogDevice.cyprj|a053a72a-b889-4a40-8441-684ba2edd64b
+D:\Downloads\SLED\Workspace01\Interface1.cydsn\Interface1.cyprj|ef084c57-d216-4859-969b-94ec9d52d955
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d322483c-6033-4877-8180-4c63682b9149
+C:\Users\user\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|cefb7af7-c4c7-491c-9c66-44447157bcf2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|6bcbe2f9-75b1-495b-b981-b8eedea031bb
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ac87f02a-a8e0-42a1-9f67-ccfdb0d7a6e2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a166ec7a-875a-4989-b9e4-1862d8f7df6d

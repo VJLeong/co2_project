@@ -52,6 +52,14 @@
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Timer_1_PM.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1.h" value="HEADER;;;;;Counter_1" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1_PM.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\TimerOutput_aliases.h" value="HEADER;;;;;TimerOutput" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\TimerOutput.c" value="SOURCE_C;CortexM3;;;;TimerOutput" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\TimerOutput.h" value="HEADER;;;;;TimerOutput" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_2.c" value="SOURCE_C;CortexM3;;;;Clock_2" />
+  <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_2.h" value="HEADER;;;;;Clock_2" />
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="D:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1_IRQ" />
