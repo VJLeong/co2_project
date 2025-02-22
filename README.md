@@ -8,6 +8,10 @@ This objective is achieved through proper setting up of the hardware setup and e
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
 ## Changelog
+### 22/22025:
+  - Re-updated read_capacitance function
+  - Included improved analogue circuitry to measure capacitance, now using an
+    NE556N timer module instead of simple RC circuit (LTSpice file included!)
 ### 13/2/2025:
   - Completed two tasks of three: Measure capacitance via PSoC
   - Currently debugging capacitance value, current capacitance value too small!
