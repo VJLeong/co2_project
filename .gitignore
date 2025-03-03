@@ -30,3 +30,4 @@ Generated_Source/
 fp-info-cache
 *.wrl
 *.step
+sandbox.py

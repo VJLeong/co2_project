@@ -89,20 +89,20 @@ int main(void) {
     Timer_1_Start();
     Counter_1_Start();
 
-//    // Start continuous measurement with 0x0010 command and pressure 0x0000
-//    uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
-//    I2C_Write(startCmd, sizeof(startCmd));
-//    CyDelay(1000); // Allow sensor initialization
-//    UART_1_PutString("Starting sensor reading...\n");
+    // Start continuous measurement with 0x0010 command and pressure 0x0000
+    uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
+    I2C_Write(startCmd, sizeof(startCmd));
+    CyDelay(1000); // Allow sensor initialization
+    UART_1_PutString("Starting sensor reading...\n");
 
     for(;;) 
     {
-//        // Command to read data (0x0300)
-//        uint8_t readCmd[2] = {0x03, 0x00};
-//        I2C_Write(readCmd, sizeof(readCmd));
-//        CyDelay(300); // Wait for command processing
-//        read_sensor_data();
-//        CyDelay(1000); // Match measurement interval
+        // Command to read data (0x0300)
+        uint8_t readCmd[2] = {0x03, 0x00};
+        I2C_Write(readCmd, sizeof(readCmd));
+        CyDelay(300); // Wait for command processing
+        read_sensor_data();
+        CyDelay(1000); // Match measurement interval
         read_capacitance();
     }
 }

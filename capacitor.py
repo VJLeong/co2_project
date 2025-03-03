@@ -8,10 +8,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 # Serial connection setup (Please check Device Manager to check your COM port and baud rate set from PSoC Creator)
-ser = serial.Serial('COM3', 57600, timeout=1)
+ser = serial.Serial('COM5', 57600, timeout=1)
 
 start_time = time.time()
-duration = 600  # Collect data for 10 minutes
+duration = 300  # Collect data for 10 minutes
 tolerance = 10
 
 capacitances = []
@@ -58,7 +58,7 @@ knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, Y_train)
 
 # Reopen serial for real-time classification
-ser = serial.Serial('COM3', 57600, timeout=1)
+ser = serial.Serial('COM5', 57600, timeout=1)
 
 plt.ion()  # Enable interactive mode
 fig, ax = plt.subplots()
@@ -82,8 +82,8 @@ try:
 
                         # Update plot
                         ax.clear()
-                        ax.scatter(range(len(data_points)), data_points, c=['g' if lbl == "100nF" else 'r' for lbl in labels_list], label="Capacitance Values")
-                        ax.axhline(y=100, color='b', linestyle='--', label="100nF Reference")
+                        ax.scatter(range(len(data_points)), data_points, c=['g' if lbl == "1000nF" else 'r' for lbl in labels_list], label="Capacitance Values")
+                        ax.axhline(y=100, color='b', linestyle='--', label="1000nF Reference")
                         ax.set_xlabel("Reading Count")
                         ax.set_ylabel("Capacitance (nF)")
                         ax.set_title("Real-time Capacitance Classification")
@@ -105,3 +105,9 @@ finally:
     ser.close()  # Ensure serial closes properly
     plt.ioff()  # Disable interactive mode
     plt.show()  # Display final plot
+
+# Filter outlier and determine scalar value of measured capacitance
+data = np.array(data_points)
+mask = (data >= np.median(data) - 100) & (data <= np.median(data) + 100)
+data = data[mask]
+print(f"Measured capacitance of {np.median(data)}nF, with percentage error of {np.round((np.median(data) - 1000)/100,2)}")
