@@ -8,6 +8,8 @@ This objective is achieved through proper setting up of the hardware setup and e
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
 ## Changelog
+### 3/3/2025:
+  - Written Python script involving KNN machine learning algorithm to help effeciently filter outlier values in read capacitance values
 ### 22/2/2025:
   - Re-updated read_capacitance function
   - Included improved analogue circuitry to measure capacitance, now using an
