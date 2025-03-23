@@ -7,6 +7,153 @@
   <width>32</width>
   <peripherals>
     <peripheral>
+      <name>ADC_SAR_1</name>
+      <description>SAR ADC</description>
+      <baseAddress>0x0</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>SAR_TR0</name>
+          <description>SAR trim register</description>
+          <addressOffset>0x40004614</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR0</name>
+          <description>SAR status and control register 0</description>
+          <addressOffset>0x40005900</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR1</name>
+          <description>SAR status and control register 1</description>
+          <addressOffset>0x40005901</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR2</name>
+          <description>SAR status and control register 2</description>
+          <addressOffset>0x40005902</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR3</name>
+          <description>SAR status and control register 3</description>
+          <addressOffset>0x40005903</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR4</name>
+          <description>SAR status and control register 4</description>
+          <addressOffset>0x40005904</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR5</name>
+          <description>SAR status and control register 5</description>
+          <addressOffset>0x40005905</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CSR6</name>
+          <description>SAR status and control register 6</description>
+          <addressOffset>0x40005906</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_SW0</name>
+          <description>SAR Analog Routing Register 0</description>
+          <addressOffset>0x40005B20</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_SW2</name>
+          <description>SAR Analog Routing Register 2</description>
+          <addressOffset>0x40005B22</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_SW3</name>
+          <description>SAR Analog Routing Register 3</description>
+          <addressOffset>0x40005B23</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_SW4</name>
+          <description>SAR Analog Routing Register 4</description>
+          <addressOffset>0x40005B24</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_SW6</name>
+          <description>SAR Analog Routing Register 6</description>
+          <addressOffset>0x40005B26</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_CLK</name>
+          <description>SAR Clock Selection Register</description>
+          <addressOffset>0x40005B27</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>SAR_WRK</name>
+          <description>SAR working register</description>
+          <addressOffset>0x40005BA0</addressOffset>
+          <size>16</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
       <name>Counter_1</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
@@ -263,7 +410,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>Timer_1</name>
+      <name>PWM_1</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -273,7 +420,7 @@
       </addressBlock>
       <registers>
         <register>
-          <name>Timer_1_GLOBAL_ENABLE</name>
+          <name>PWM_1_GLOBAL_ENABLE</name>
           <description>PM.ACT.CFG</description>
           <addressOffset>0x400043A3</addressOffset>
           <size>8</size>
@@ -291,7 +438,7 @@
           </fields>
         </register>
         <register>
-          <name>Timer_1_CONTROL</name>
+          <name>PWM_1_CONTROL</name>
           <description>TMRx.CFG0</description>
           <addressOffset>0x40004F00</addressOffset>
           <size>8</size>
@@ -375,7 +522,7 @@
           </fields>
         </register>
         <register>
-          <name>Timer_1_CONTROL2</name>
+          <name>PWM_1_CONTROL2</name>
           <description>TMRx.CFG1</description>
           <addressOffset>0x40004F01</addressOffset>
           <size>8</size>
@@ -440,7 +587,7 @@
           </fields>
         </register>
         <register>
-          <name>Timer_1_CONTROL3_</name>
+          <name>PWM_1_CONTROL3_</name>
           <description>TMRx.CFG2</description>
           <addressOffset>0x40004F02</addressOffset>
           <size>8</size>
@@ -535,19 +682,19 @@
           </fields>
         </register>
         <register>
-          <name>Timer_1_PERIOD</name>
+          <name>PWM_1_PERIOD</name>
           <description>TMRx.PER0 - Assigned Period</description>
           <addressOffset>0x40004F04</addressOffset>
-          <size>16</size>
+          <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>Timer_1_COUNTER</name>
-          <description>TMRx.CNT_CMP0 - Current Down Counter Value</description>
+          <name>PWM_1_COMPARE</name>
+          <description>TMRx.CNT_CMP0 - Assigned Compare Value</description>
           <addressOffset>0x40004F06</addressOffset>
-          <size>16</size>
+          <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
@@ -698,153 +845,6 @@
               <access>read-only</access>
             </field>
           </fields>
-        </register>
-      </registers>
-    </peripheral>
-    <peripheral>
-      <name>ADC_SAR_1</name>
-      <description>SAR ADC</description>
-      <baseAddress>0x0</baseAddress>
-      <addressBlock>
-        <offset>0</offset>
-        <size>0x0</size>
-        <usage>registers</usage>
-      </addressBlock>
-      <registers>
-        <register>
-          <name>SAR_TR0</name>
-          <description>SAR trim register</description>
-          <addressOffset>0x40004614</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR0</name>
-          <description>SAR status and control register 0</description>
-          <addressOffset>0x40005900</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR1</name>
-          <description>SAR status and control register 1</description>
-          <addressOffset>0x40005901</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR2</name>
-          <description>SAR status and control register 2</description>
-          <addressOffset>0x40005902</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR3</name>
-          <description>SAR status and control register 3</description>
-          <addressOffset>0x40005903</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR4</name>
-          <description>SAR status and control register 4</description>
-          <addressOffset>0x40005904</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR5</name>
-          <description>SAR status and control register 5</description>
-          <addressOffset>0x40005905</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CSR6</name>
-          <description>SAR status and control register 6</description>
-          <addressOffset>0x40005906</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_SW0</name>
-          <description>SAR Analog Routing Register 0</description>
-          <addressOffset>0x40005B20</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_SW2</name>
-          <description>SAR Analog Routing Register 2</description>
-          <addressOffset>0x40005B22</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_SW3</name>
-          <description>SAR Analog Routing Register 3</description>
-          <addressOffset>0x40005B23</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_SW4</name>
-          <description>SAR Analog Routing Register 4</description>
-          <addressOffset>0x40005B24</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_SW6</name>
-          <description>SAR Analog Routing Register 6</description>
-          <addressOffset>0x40005B26</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_CLK</name>
-          <description>SAR Clock Selection Register</description>
-          <addressOffset>0x40005B27</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>SAR_WRK</name>
-          <description>SAR working register</description>
-          <addressOffset>0x40005BA0</addressOffset>
-          <size>16</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
         </register>
       </registers>
     </peripheral>

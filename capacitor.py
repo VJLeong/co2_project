@@ -1,22 +1,40 @@
 import serial
+import serial.tools.list_ports
 import time
 from tqdm import tqdm
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 
-# Serial connection setup (Please check Device Manager to check your COM port and baud rate set from PSoC Creator)
-ser = serial.Serial('COM5', 57600, timeout=1)
+# Determine COM port for PSoC connection
+desired_name = "KitProg"  # Replace with the part of the port description you're looking for
+comPort = ''
+baud = 57600
+
+ports = serial.tools.list_ports.comports()
+for port in ports:
+    # Check if the desired name is in the description
+    if desired_name.lower() in port.description.lower():
+        comPort = port.device
+        # print("Found port:", port.device)
+
+# Serial connection setup 
+ser = serial.Serial(comPort, baud, timeout=1)
 
 start_time = time.time()
-duration = 300  # Collect data for 10 minutes
-tolerance = 10
+duration = 300  # Collect data for 5 minutes (adjust as needed)
 
 capacitances = []
 
-# Data collection loop
+# Set up the real-time plot
+plt.ion()  # Turn on interactive mode
+fig, ax = plt.subplots()
+line, = ax.plot([], [], 'b-', label="Capacitance")
+ax.set_xlabel('Sample Number')
+ax.set_ylabel('Capacitance (nF)')
+ax.set_title('Real-time Capacitance Data')
+ax.legend()
+
+# Data collection loop with progress bar
 with tqdm(total=duration, desc="Collecting Data", bar_format="{l_bar}{bar} {n_fmt}/{total_fmt}s") as pbar:
     while time.time() - start_time < duration:
         if ser.in_waiting > 0:
@@ -25,89 +43,23 @@ with tqdm(total=duration, desc="Collecting Data", bar_format="{l_bar}{bar} {n_fm
                 if "Capacitance:" in data and "nF" in data:
                     capacitance = float(data.split("Capacitance: ")[1].split(" nF")[0])
                     capacitances.append(capacitance)
+
+                    # Update the plot with new data
+                    x_data = np.arange(len(capacitances))
+                    line.set_data(x_data, capacitances)
+                    ax.relim()                # Recalculate limits
+                    ax.autoscale_view()       # Rescale the view to show new data
+                    plt.draw()                # Update the figure
+                    plt.pause(0.001)          # Brief pause to allow the GUI to process events
                 else:
                     print(f"Skipping invalid data: {data}")
-
             except (IndexError, ValueError):
                 print(f"Error parsing data: {data}")
 
         # Update progress bar
         elapsed_time = time.time() - start_time
-        pbar.update(min(elapsed_time - pbar.n, 1))  # Ensure we don't overshoot progress
+        pbar.update(min(elapsed_time - pbar.n, 1))
 
-ser.close()  # Close serial connection after data collection
-
-if len(capacitances) == 0:
-    print("No valid capacitance data received. Exiting.")
-    exit()
-
-# Prepare labels for machine learning
-capacitances = np.array(capacitances).reshape(-1, 1)
-labels = np.where((capacitances >= 100 - tolerance) & (capacitances <= 100 + tolerance), "100nF", "Other")
-
-# Train-test split
-X_train, X_test, Y_train, Y_test = train_test_split(capacitances, labels, test_size=0.2, random_state=69)
-
-# Standardize data
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-# Train KNN Model
-knn = KNeighborsClassifier(n_neighbors=3)
-knn.fit(X_train, Y_train)
-
-# Reopen serial for real-time classification
-ser = serial.Serial('COM5', 57600, timeout=1)
-
-plt.ion()  # Enable interactive mode
-fig, ax = plt.subplots()
-data_points = []
-labels_list = []
-start_time = time.time()
-
-try:
-    with tqdm(total=duration, desc="Collecting & Predicting", bar_format="{l_bar}{bar} {n_fmt}/{total_fmt}s") as pbar:
-        while time.time() - start_time < duration:
-            if ser.in_waiting > 0:
-                data = ser.readline().decode('utf-8').strip()
-                try:
-                    if "Capacitance:" in data and "nF" in data:
-                        capacitance = float(data.split("Capacitance: ")[1].split(" nF")[0])
-                        predicted_label = knn.predict([[capacitance]])[0]
-
-                        # Store values for visualization
-                        data_points.append(capacitance)
-                        labels_list.append(predicted_label)
-
-                        # Update plot
-                        ax.clear()
-                        ax.scatter(range(len(data_points)), data_points, c=['g' if lbl == "1000nF" else 'r' for lbl in labels_list], label="Capacitance Values")
-                        ax.axhline(y=100, color='b', linestyle='--', label="1000nF Reference")
-                        ax.set_xlabel("Reading Count")
-                        ax.set_ylabel("Capacitance (nF)")
-                        ax.set_title("Real-time Capacitance Classification")
-                        ax.legend()
-                        plt.pause(0.1)
-
-                    else:
-                        print(f"Skipping invalid data: {data}")
-
-                except (IndexError, ValueError):
-                    print(f"Error parsing data: {data}")
-
-            # Update progress bar
-            elapsed_time = time.time() - start_time
-            pbar.update(min(elapsed_time - pbar.n, 1))
-
-finally:
-    print("End of prediction")
-    ser.close()  # Ensure serial closes properly
-    plt.ioff()  # Disable interactive mode
-    plt.show()  # Display final plot
-
-# Filter outlier and determine scalar value of measured capacitance
-data = np.array(data_points)
-mask = (data >= np.median(data) - 100) & (data <= np.median(data) + 100)
-data = data[mask]
-print(f"Measured capacitance of {np.median(data)}nF, with percentage error of {np.round((np.median(data) - 1000)/100,2)}")
+ser.close()  # Close the serial connection after data collection
+plt.ioff()   # Turn interactive mode off
+plt.show()   # Keep the plot window open after the loop ends

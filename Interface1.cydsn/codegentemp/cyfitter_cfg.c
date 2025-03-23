@@ -148,7 +148,7 @@ static void CyClockStartupError(uint8 errorCode)
 }
 #endif
 
-#define CY_CFG_BASE_ADDR_COUNT 30u
+#define CY_CFG_BASE_ADDR_COUNT 31u
 CYPACKED typedef struct
 {
 	uint8 offset;
@@ -156,25 +156,25 @@ CYPACKED typedef struct
 } CYPACKED_ATTR cy_cfg_addrvalue_t;
 
 #define cy_cfg_addr_table ((const uint32 CYFAR *)0x48000000u)
-#define cy_cfg_data_table ((const cy_cfg_addrvalue_t CYFAR *)0x48000078u)
+#define cy_cfg_data_table ((const cy_cfg_addrvalue_t CYFAR *)0x4800007Cu)
 
 /* IOPORT_7 Address: CYDEV_PRTDSI_PRT12_BASE Size (bytes): 6 */
-#define BS_IOPORT_7_VAL ((const uint8 CYFAR *)0x4800067Cu)
+#define BS_IOPORT_7_VAL ((const uint8 CYFAR *)0x4800069Cu)
 
 /* IOPINS0_0 Address: CYREG_PRT0_DM0 Size (bytes): 8 */
-#define BS_IOPINS0_0_VAL ((const uint8 CYFAR *)0x48000684u)
+#define BS_IOPINS0_0_VAL ((const uint8 CYFAR *)0x480006A4u)
 
 /* IOPINS0_7 Address: CYREG_PRT12_DR Size (bytes): 10 */
-#define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x4800068Cu)
+#define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x480006ACu)
 
 /* IOPINS0_1 Address: CYREG_PRT1_DM0 Size (bytes): 8 */
-#define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x48000698u)
+#define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x480006B8u)
 
 /* IOPINS0_2 Address: CYREG_PRT2_DM0 Size (bytes): 8 */
-#define BS_IOPINS0_2_VAL ((const uint8 CYFAR *)0x480006A0u)
+#define BS_IOPINS0_2_VAL ((const uint8 CYFAR *)0x480006C0u)
 
 /* CYDEV_CLKDIST_ACFG0_CFG0 Address: CYREG_CLKDIST_ACFG0_CFG0 Size (bytes): 4 */
-#define BS_CYDEV_CLKDIST_ACFG0_CFG0_VAL ((const uint8 CYFAR *)0x480006A8u)
+#define BS_CYDEV_CLKDIST_ACFG0_CFG0_VAL ((const uint8 CYFAR *)0x480006C8u)
 
 
 /*******************************************************************************
@@ -312,10 +312,10 @@ static void AnalogSetDefault(void)
 	/* Disable PRES while setting up SAR voltage reference */
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR4), (cr4 | 0x03u));
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR5), (cr5 | 0x03u));
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT0_AG, 0x02u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT0_AG, 0x01u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_CSR1, 0x40u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_CSR3, 0x40u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW0, 0x20u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW0, 0x10u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW3, 0x20u);
 	CyDelayUs(10u); /* Allow vref to settle before re-enabling PRES */
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR5), (cr5));

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ChargingPin.h  
+* File Name: Temperature.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_ChargingPin_ALIASES_H) /* Pins ChargingPin_ALIASES_H */
-#define CY_PINS_ChargingPin_ALIASES_H
+#if !defined(CY_PINS_Temperature_ALIASES_H) /* Pins Temperature_ALIASES_H */
+#define CY_PINS_Temperature_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define ChargingPin_0			(ChargingPin__0__PC)
-#define ChargingPin_0_INTR	((uint16)((uint16)0x0001u << ChargingPin__0__SHIFT))
+#define Temperature_0			(Temperature__0__PC)
+#define Temperature_0_INTR	((uint16)((uint16)0x0001u << Temperature__0__SHIFT))
 
-#define ChargingPin_INTR_ALL	 ((uint16)(ChargingPin_0_INTR))
+#define Temperature_INTR_ALL	 ((uint16)(Temperature_0_INTR))
 
-#endif /* End Pins ChargingPin_ALIASES_H */
+#endif /* End Pins Temperature_ALIASES_H */
 
 
 /* [] END OF FILE */

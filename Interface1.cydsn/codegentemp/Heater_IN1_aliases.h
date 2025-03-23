@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Capacitance.h  
+* File Name: Heater_IN1.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Capacitance_ALIASES_H) /* Pins Capacitance_ALIASES_H */
-#define CY_PINS_Capacitance_ALIASES_H
+#if !defined(CY_PINS_Heater_IN1_ALIASES_H) /* Pins Heater_IN1_ALIASES_H */
+#define CY_PINS_Heater_IN1_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Capacitance_0			(Capacitance__0__PC)
-#define Capacitance_0_INTR	((uint16)((uint16)0x0001u << Capacitance__0__SHIFT))
+#define Heater_IN1_0			(Heater_IN1__0__PC)
+#define Heater_IN1_0_INTR	((uint16)((uint16)0x0001u << Heater_IN1__0__SHIFT))
 
-#define Capacitance_INTR_ALL	 ((uint16)(Capacitance_0_INTR))
+#define Heater_IN1_INTR_ALL	 ((uint16)(Heater_IN1_0_INTR))
 
-#endif /* End Pins Capacitance_ALIASES_H */
+#endif /* End Pins Heater_IN1_ALIASES_H */
 
 
 /* [] END OF FILE */

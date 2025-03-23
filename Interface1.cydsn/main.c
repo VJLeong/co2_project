@@ -1,27 +1,36 @@
 #include "project.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 // Definitions
 #define SCD30_I2C_ADDRESS 0x61
-#define VREF 5.0
-#define ADC_MAX_VALUE 4095
-#define VTHRESHOLD (VREF * 0.63) // 63% charged up of capacitor
 #define R1 1000.0 // 1k ohm resistor
 #define R2 10000.0 // 10k ohm resistor
-#define TIMER_RESOLUTION 2.0e-6
-#define CORRECTION_FACTOR 1.0e3
+#define R3 22000.0 //22k ohm resistor
+#define VREF 5.0
+#define ADC_MAX_VALUE 4095
+// JS6670 nominal parameters (from datasheet/specs)
+#define R0          9983.0      // Nominal resistance at 25°C in Ohms
+#define T0          298.15      // Nominal temperature in Kelvin (25°C)
+#define BETA        3950.0      // Beta parameter in Kelvin
 
 // Function prototypes
 void I2C_Write(uint8_t *data, uint8_t length);
 void I2C_Read(uint8_t *data, uint8_t length);
 void read_sensor_data();
 void read_capacitance();
+void heater();
+void read_temperature();
 // Global variables
 char string_1[100];
-double capMeasureArray[5];
 uint8_t buffer[18]; // Buffer for 18 bytes of data
-uint16 adcResult;
+uint16 adcResult, heaterDutyCycle;
+uint8 status;
+float  voltage;
+float  R_thermistor;
+float  temperatureK, temperatureC;
+int    tempCeil;
 
 void I2C_Write(uint8_t *data, uint8_t length) {
     I2C_1_MasterWriteBuf(SCD30_I2C_ADDRESS, data, length, I2C_1_MODE_COMPLETE_XFER);
@@ -79,22 +88,102 @@ void read_capacitance()
     UART_1_PutString(string_1);
 }
 
+// Bang-bang on/off controller test implementation
+void heater()
+{
+    // Start the PWM module once
+    PWM_1_Start();
+    
+    // Set the heater direction: only one side is activated for heat flow.
+    Heater_IN1_Write(1);
+    Heater_IN2_Write(0);
+    
+    // Set the duty cycle to 100% (for full power)
+    heaterDutyCycle = 255;
+    PWM_1_WriteCompare(heaterDutyCycle);
+    
+    // Enable the heater channel by setting the ENA pin high.
+    Heater_ENA_Write(1);
+    UART_1_PutString("Begin heating...\n");
+    
+    // Loop until the temperature exceeds 60°C
+    while (tempCeil <= 40)
+    {
+        // Read temperature and update the global variable tempCeil
+        read_temperature();
+    }
+    
+    // Turn off the heater once 60°C is reached
+    Heater_ENA_Write(0);
+    PWM_1_Stop();
+    
+    // Set the control pins to low
+    Heater_IN1_Write(0);
+    Heater_IN2_Write(0);
+    UART_1_PutString("Heating stopped.\n");
+}
+
+
+void read_temperature()
+{
+    
+        /* Kick off a single ADC conversion */
+        ADC_SAR_1_StartConvert();
+
+        /* Wait until the conversion completes */
+        do
+        {
+            status = ADC_SAR_1_IsEndConversion(ADC_SAR_1_RETURN_STATUS);
+        }
+        while (status == 0);
+
+        /* Get the ADC raw count */
+        adcResult = ADC_SAR_1_GetResult16();
+
+        /* Convert raw count to a voltage in [0..VREF] */
+        voltage = ADC_SAR_1_CountsTo_Volts(adcResult);
+
+        R_thermistor = R3*(VREF - voltage) / voltage;
+
+        /* Compute temperature using Beta equation if R_thermistor > 0 */
+        if (R_thermistor > 0.0f)
+        {
+            /* T(K) = BETA / (ln(R/R0) + (BETA/T0)) */
+            temperatureK = BETA / (logf(R_thermistor / R0) + (BETA / T0));
+            temperatureC = temperatureK - 273.15f;
+        }
+        else
+        {
+            temperatureC = -999.0f;  // sentinel for error
+        }
+
+        /* Round up the temperature to next integer */
+        tempCeil = (int)ceilf(temperatureC);
+
+        /* Print integer result via UART */
+        sprintf(string_1, "Current temperature: %d degrees Celsius\r\n", tempCeil);
+        UART_1_PutString(string_1);
+
+        /* Delay 1 second before next reading */
+        CyDelay(1000u);
+}
+
 
 
 int main(void) {
     CyGlobalIntEnable;
     I2C_1_Start();
     UART_1_Start();
-    ADC_SAR_1_Start();
-    Timer_1_Start();
     Counter_1_Start();
+    //PWM_1_Start();
+    ADC_SAR_1_Start();
 
     // Start continuous measurement with 0x0010 command and pressure 0x0000
     uint8_t startCmd[5] = {0x00, 0x10, 0x00, 0x00, 0x81}; // 0x81 is CRC for 0x0000
     I2C_Write(startCmd, sizeof(startCmd));
     CyDelay(1000); // Allow sensor initialization
     UART_1_PutString("Starting sensor reading...\n");
-
+    heater();
     for(;;) 
     {
         // Command to read data (0x0300)
@@ -104,5 +193,8 @@ int main(void) {
         read_sensor_data();
         CyDelay(1000); // Match measurement interval
         read_capacitance();
+        
+        // Temperature sensor
+        read_temperature();
     }
 }

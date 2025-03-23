@@ -37,21 +37,14 @@
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\I2C_1_SLAVE.c" value="SOURCE_C;CortexM3;;;;I2C_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\I2C_1_MASTER.c" value="SOURCE_C;CortexM3;;;;I2C_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\I2C_1_PVT.h" value="HEADER;;;;;I2C_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ChargingPin_aliases.h" value="HEADER;;;;;ChargingPin" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ChargingPin.c" value="SOURCE_C;CortexM3;;;;ChargingPin" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ChargingPin.h" value="HEADER;;;;;ChargingPin" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1.h" value="HEADER;;;;;ADC_SAR_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Capacitance_aliases.h" value="HEADER;;;;;Capacitance" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Capacitance.c" value="SOURCE_C;CortexM3;;;;Capacitance" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Capacitance.h" value="HEADER;;;;;Capacitance" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Timer_1.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Timer_1.h" value="HEADER;;;;;Timer_1" />
-  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Timer_1_PM.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_ENA_aliases.h" value="HEADER;;;;;Heater_ENA" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_ENA.c" value="SOURCE_C;CortexM3;;;;Heater_ENA" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_ENA.h" value="HEADER;;;;;Heater_ENA" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\PWM_1.c" value="SOURCE_C;CortexM3;;;;PWM_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\PWM_1.h" value="HEADER;;;;;PWM_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\PWM_1_PM.c" value="SOURCE_C;CortexM3;;;;PWM_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1.h" value="HEADER;;;;;Counter_1" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Counter_1_PM.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
@@ -60,6 +53,19 @@
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\TimerOutput.h" value="HEADER;;;;;TimerOutput" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_2.c" value="SOURCE_C;CortexM3;;;;Clock_2" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Clock_2.h" value="HEADER;;;;;Clock_2" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1.h" value="HEADER;;;;;ADC_SAR_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Temperature_aliases.h" value="HEADER;;;;;Temperature" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Temperature.c" value="SOURCE_C;CortexM3;;;;Temperature" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Temperature.h" value="HEADER;;;;;Temperature" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN1_aliases.h" value="HEADER;;;;;Heater_IN1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN1.c" value="SOURCE_C;CortexM3;;;;Heater_IN1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN1.h" value="HEADER;;;;;Heater_IN1" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN2_aliases.h" value="HEADER;;;;;Heater_IN2" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN2.c" value="SOURCE_C;CortexM3;;;;Heater_IN2" />
+  <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\Heater_IN2.h" value="HEADER;;;;;Heater_IN2" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="F:\Downloads\SLED\Workspace01\Interface1.cydsn\codegentemp\ADC_SAR_1_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1_IRQ" />

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ChargingPin.c  
+* File Name: Heater_IN1.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "ChargingPin.h"
+#include "Heater_IN1.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 ChargingPin__PORT == 15 && ((ChargingPin__MASK & 0xC0) != 0))
+	 Heater_IN1__PORT == 15 && ((Heater_IN1__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: ChargingPin_Write
+* Function Name: Heater_IN1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet ChargingPin_SUT.c usage_ChargingPin_Write
+*  \snippet Heater_IN1_SUT.c usage_Heater_IN1_Write
 *******************************************************************************/
-void ChargingPin_Write(uint8 value)
+void Heater_IN1_Write(uint8 value)
 {
-    uint8 staticBits = (ChargingPin_DR & (uint8)(~ChargingPin_MASK));
-    ChargingPin_DR = staticBits | ((uint8)(value << ChargingPin_SHIFT) & ChargingPin_MASK);
+    uint8 staticBits = (Heater_IN1_DR & (uint8)(~Heater_IN1_MASK));
+    Heater_IN1_DR = staticBits | ((uint8)(value << Heater_IN1_SHIFT) & Heater_IN1_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: ChargingPin_SetDriveMode
+* Function Name: Heater_IN1_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void ChargingPin_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet ChargingPin_SUT.c usage_ChargingPin_SetDriveMode
+*  \snippet Heater_IN1_SUT.c usage_Heater_IN1_SetDriveMode
 *******************************************************************************/
-void ChargingPin_SetDriveMode(uint8 mode)
+void Heater_IN1_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(ChargingPin_0, mode);
+	CyPins_SetPinDriveMode(Heater_IN1_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: ChargingPin_Read
+* Function Name: Heater_IN1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void ChargingPin_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet ChargingPin_SUT.c usage_ChargingPin_Read  
+*  \snippet Heater_IN1_SUT.c usage_Heater_IN1_Read  
 *******************************************************************************/
-uint8 ChargingPin_Read(void)
+uint8 Heater_IN1_Read(void)
 {
-    return (ChargingPin_PS & ChargingPin_MASK) >> ChargingPin_SHIFT;
+    return (Heater_IN1_PS & Heater_IN1_MASK) >> Heater_IN1_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: ChargingPin_ReadDataReg
+* Function Name: Heater_IN1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 ChargingPin_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred ChargingPin_Read() API because the 
-* ChargingPin_ReadDataReg() reads the data register instead of the status 
+* preferred Heater_IN1_Read() API because the 
+* Heater_IN1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 ChargingPin_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet ChargingPin_SUT.c usage_ChargingPin_ReadDataReg 
+*  \snippet Heater_IN1_SUT.c usage_Heater_IN1_ReadDataReg 
 *******************************************************************************/
-uint8 ChargingPin_ReadDataReg(void)
+uint8 Heater_IN1_ReadDataReg(void)
 {
-    return (ChargingPin_DR & ChargingPin_MASK) >> ChargingPin_SHIFT;
+    return (Heater_IN1_DR & Heater_IN1_MASK) >> Heater_IN1_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(ChargingPin_INTSTAT) 
+#if defined(Heater_IN1_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: ChargingPin_SetInterruptMode
+    * Function Name: Heater_IN1_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 ChargingPin_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use ChargingPin_INTR_ALL to configure the
+    *  component. Or you may use Heater_IN1_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - ChargingPin_0_INTR       (First pin in the list)
-    *  - ChargingPin_1_INTR       (Second pin in the list)
+    *  - Heater_IN1_0_INTR       (First pin in the list)
+    *  - Heater_IN1_1_INTR       (Second pin in the list)
     *  - ...
-    *  - ChargingPin_INTR_ALL     (All pins in Pins component)
+    *  - Heater_IN1_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 ChargingPin_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet ChargingPin_SUT.c usage_ChargingPin_SetInterruptMode
+    *  \snippet Heater_IN1_SUT.c usage_Heater_IN1_SetInterruptMode
     *******************************************************************************/
-    void ChargingPin_SetInterruptMode(uint16 position, uint16 mode)
+    void Heater_IN1_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & ChargingPin_0_INTR) != 0u) 
+		if((position & Heater_IN1_0_INTR) != 0u) 
 		{ 
-			 ChargingPin_0_INTTYPE_REG = (uint8)mode; 
+			 Heater_IN1_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: ChargingPin_ClearInterrupt
+    * Function Name: Heater_IN1_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 ChargingPin_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet ChargingPin_SUT.c usage_ChargingPin_ClearInterrupt
+    *  \snippet Heater_IN1_SUT.c usage_Heater_IN1_ClearInterrupt
     *******************************************************************************/
-    uint8 ChargingPin_ClearInterrupt(void)
+    uint8 Heater_IN1_ClearInterrupt(void)
     {
-        return (ChargingPin_INTSTAT & ChargingPin_MASK) >> ChargingPin_SHIFT;
+        return (Heater_IN1_INTSTAT & Heater_IN1_MASK) >> Heater_IN1_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

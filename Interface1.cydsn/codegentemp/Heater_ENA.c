@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Capacitance.c  
+* File Name: Heater_ENA.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Capacitance.h"
+#include "Heater_ENA.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 Capacitance__PORT == 15 && ((Capacitance__MASK & 0xC0) != 0))
+	 Heater_ENA__PORT == 15 && ((Heater_ENA__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: Capacitance_Write
+* Function Name: Heater_ENA_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Capacitance_SUT.c usage_Capacitance_Write
+*  \snippet Heater_ENA_SUT.c usage_Heater_ENA_Write
 *******************************************************************************/
-void Capacitance_Write(uint8 value)
+void Heater_ENA_Write(uint8 value)
 {
-    uint8 staticBits = (Capacitance_DR & (uint8)(~Capacitance_MASK));
-    Capacitance_DR = staticBits | ((uint8)(value << Capacitance_SHIFT) & Capacitance_MASK);
+    uint8 staticBits = (Heater_ENA_DR & (uint8)(~Heater_ENA_MASK));
+    Heater_ENA_DR = staticBits | ((uint8)(value << Heater_ENA_SHIFT) & Heater_ENA_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: Capacitance_SetDriveMode
+* Function Name: Heater_ENA_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void Capacitance_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet Capacitance_SUT.c usage_Capacitance_SetDriveMode
+*  \snippet Heater_ENA_SUT.c usage_Heater_ENA_SetDriveMode
 *******************************************************************************/
-void Capacitance_SetDriveMode(uint8 mode)
+void Heater_ENA_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(Capacitance_0, mode);
+	CyPins_SetPinDriveMode(Heater_ENA_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Capacitance_Read
+* Function Name: Heater_ENA_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void Capacitance_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Capacitance_SUT.c usage_Capacitance_Read  
+*  \snippet Heater_ENA_SUT.c usage_Heater_ENA_Read  
 *******************************************************************************/
-uint8 Capacitance_Read(void)
+uint8 Heater_ENA_Read(void)
 {
-    return (Capacitance_PS & Capacitance_MASK) >> Capacitance_SHIFT;
+    return (Heater_ENA_PS & Heater_ENA_MASK) >> Heater_ENA_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: Capacitance_ReadDataReg
+* Function Name: Heater_ENA_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 Capacitance_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Capacitance_Read() API because the 
-* Capacitance_ReadDataReg() reads the data register instead of the status 
+* preferred Heater_ENA_Read() API because the 
+* Heater_ENA_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 Capacitance_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Capacitance_SUT.c usage_Capacitance_ReadDataReg 
+*  \snippet Heater_ENA_SUT.c usage_Heater_ENA_ReadDataReg 
 *******************************************************************************/
-uint8 Capacitance_ReadDataReg(void)
+uint8 Heater_ENA_ReadDataReg(void)
 {
-    return (Capacitance_DR & Capacitance_MASK) >> Capacitance_SHIFT;
+    return (Heater_ENA_DR & Heater_ENA_MASK) >> Heater_ENA_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(Capacitance_INTSTAT) 
+#if defined(Heater_ENA_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: Capacitance_SetInterruptMode
+    * Function Name: Heater_ENA_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 Capacitance_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use Capacitance_INTR_ALL to configure the
+    *  component. Or you may use Heater_ENA_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - Capacitance_0_INTR       (First pin in the list)
-    *  - Capacitance_1_INTR       (Second pin in the list)
+    *  - Heater_ENA_0_INTR       (First pin in the list)
+    *  - Heater_ENA_1_INTR       (Second pin in the list)
     *  - ...
-    *  - Capacitance_INTR_ALL     (All pins in Pins component)
+    *  - Heater_ENA_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 Capacitance_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet Capacitance_SUT.c usage_Capacitance_SetInterruptMode
+    *  \snippet Heater_ENA_SUT.c usage_Heater_ENA_SetInterruptMode
     *******************************************************************************/
-    void Capacitance_SetInterruptMode(uint16 position, uint16 mode)
+    void Heater_ENA_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & Capacitance_0_INTR) != 0u) 
+		if((position & Heater_ENA_0_INTR) != 0u) 
 		{ 
-			 Capacitance_0_INTTYPE_REG = (uint8)mode; 
+			 Heater_ENA_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: Capacitance_ClearInterrupt
+    * Function Name: Heater_ENA_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 Capacitance_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet Capacitance_SUT.c usage_Capacitance_ClearInterrupt
+    *  \snippet Heater_ENA_SUT.c usage_Heater_ENA_ClearInterrupt
     *******************************************************************************/
-    uint8 Capacitance_ClearInterrupt(void)
+    uint8 Heater_ENA_ClearInterrupt(void)
     {
-        return (Capacitance_INTSTAT & Capacitance_MASK) >> Capacitance_SHIFT;
+        return (Heater_ENA_INTSTAT & Heater_ENA_MASK) >> Heater_ENA_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

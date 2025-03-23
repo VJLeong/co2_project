@@ -1,5 +1,5 @@
 # Interface1
-# 2025-03-03 11:03:41Z
+# 2025-03-23 03:49:26Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -11,7 +11,9 @@ set_io "Rx_1(0)" iocell 12 6
 set_io "Tx_1(0)" iocell 12 7
 set_io "SDA_1(0)" iocell 12 1
 set_io "SCL_1(0)" iocell 12 0
-set_io "ChargingPin(0)" iocell 2 3
-set_io "Capacitance(0)" iocell 0 1
+set_io "Heater_ENA(0)" iocell 2 4
 set_io "TimerOutput(0)" iocell 2 5
+set_io "Temperature(0)" iocell 0 0
+set_io "Heater_IN1(0)" iocell 2 3
+set_io "Heater_IN2(0)" iocell 2 2
 set_location "\ADC_SAR_1:ADC_SAR\" sarcell -1 -1 0
