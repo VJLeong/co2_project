@@ -13,7 +13,7 @@
 // JS6670 nominal parameters (from datasheet/specs)
 #define R0          9983.0      // Nominal resistance at 25°C in Ohms
 #define T0          298.15      // Nominal temperature in Kelvin (25°C)
-#define BETA        3950.0      // Beta parameter in Kelvin
+#define BETA        3870.0     // Beta parameter in Kelvin
 
 // Function prototypes
 void I2C_Write(uint8_t *data, uint8_t length);
@@ -36,7 +36,7 @@ float Kp = 10.0f;
 float Ki = 5.0f;
 float Kd = 1.0f;
 float dt = 1.0f; // Matches sampling period
-float setpoint = 55.0f;
+float setpoint = 60.0f;
 float error, derivative, integral, prevErr;
 
 void I2C_Write(uint8_t *data, uint8_t length) {

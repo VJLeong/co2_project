@@ -10,7 +10,7 @@ For this project, the microcontroller unit used is the PSoC 5LP module and PCB d
 ## Changelog
 ### 23/3/2025:
   - Updated capacitance.py to remove KNN cluster and median filtering algorithm to display raw data output in graph
-  - Added heater bang-bang control and temperature sensor (3/3 tasks)
+  - Added heater PID bang-bang control and temperature sensor (3/3 tasks)
 ### 3/3/2025:
   - Written Python script involving KNN machine learning algorithm to help effeciently filter outlier values in read capacitance values
 ### 22/2/2025:
