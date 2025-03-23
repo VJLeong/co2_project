@@ -8,7 +8,7 @@
 #define R1 1000.0 // 1k ohm resistor
 #define R2 10000.0 // 10k ohm resistor
 #define R3 22000.0 //22k ohm resistor
-#define VREF 5.0
+#define VREF 4.9
 #define ADC_MAX_VALUE 4095
 // JS6670 nominal parameters (from datasheet/specs)
 #define R0          9983.0      // Nominal resistance at 25°C in Ohms
@@ -31,6 +31,13 @@ float  voltage;
 float  R_thermistor;
 float  temperatureK, temperatureC;
 int    tempCeil;
+// Temperature control (PID)
+float Kp = 10.0f;
+float Ki = 5.0f;
+float Kd = 1.0f;
+float dt = 1.0f; // Matches sampling period
+float setpoint = 55.0f;
+float error, derivative, integral, prevErr;
 
 void I2C_Write(uint8_t *data, uint8_t length) {
     I2C_1_MasterWriteBuf(SCD30_I2C_ADDRESS, data, length, I2C_1_MODE_COMPLETE_XFER);
@@ -93,7 +100,6 @@ void heater()
 {
     // Start the PWM module once
     PWM_1_Start();
-    
     // Set the heater direction: only one side is activated for heat flow.
     Heater_IN1_Write(1);
     Heater_IN2_Write(0);
@@ -107,10 +113,32 @@ void heater()
     UART_1_PutString("Begin heating...\n");
     
     // Loop until the temperature exceeds 60°C
-    while (tempCeil <= 40)
+    // May need extra condition such that when capacitance of IDE goes down below threshold, heater stops
+    while (tempCeil <= setpoint)
     {
         // Read temperature and update the global variable tempCeil
         read_temperature();
+        
+        error = setpoint - tempCeil;
+        integral += error*dt;
+        derivative = (error - prevErr)/dt;
+        prevErr = error;
+        
+        float output = error*Kp + integral*Ki + derivative*Kd;
+        heaterDutyCycle = (int)output;
+        // Clamp pwm duty cycle
+        if (heaterDutyCycle > 255)
+        {
+            heaterDutyCycle = 255;
+        }
+        else if (heaterDutyCycle < 0)
+        {
+            heaterDutyCycle = 0;
+        }
+        
+        // Print out controls params
+        sprintf(string_1, "Set: %d, Temp: %d, Err: %d, PWM: %d\r\n", (int)setpoint, tempCeil, (int)ceil(error), heaterDutyCycle);
+        UART_1_PutString(string_1);
     }
     
     // Turn off the heater once 60°C is reached
@@ -186,15 +214,15 @@ int main(void) {
     heater();
     for(;;) 
     {
-        // Command to read data (0x0300)
-        uint8_t readCmd[2] = {0x03, 0x00};
-        I2C_Write(readCmd, sizeof(readCmd));
-        CyDelay(300); // Wait for command processing
-        read_sensor_data();
-        CyDelay(1000); // Match measurement interval
-        read_capacitance();
-        
-        // Temperature sensor
-        read_temperature();
+//        // Command to read data (0x0300)
+//        uint8_t readCmd[2] = {0x03, 0x00};
+//        I2C_Write(readCmd, sizeof(readCmd));
+//        CyDelay(300); // Wait for command processing
+//        read_sensor_data();
+//        CyDelay(1000); // Match measurement interval
+//        read_capacitance();
+//        
+//        // Temperature sensor
+//        read_temperature();
     }
 }
