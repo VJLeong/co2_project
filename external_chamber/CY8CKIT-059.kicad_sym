@@ -1,0 +1,585 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "CY8CKIT-059" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "U" (id 0) (at -20.32 16.002 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "CY8CKIT-059" (id 1) (at -20.32 -20.32 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "CY8CKIT-059:MODULE_CY8CKIT-059" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MF" "Cypress Semiconductor" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Description" "\n                        \n                            CY8C58LP  PSOC® 5LP ARM® Cortex®-M3 MCU 32-Bit Embedded Evaluation Board\n                        \n" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Package" "None" (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Price" "None" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Check_prices" "https://www.snapeda.com/parts/CY8CKIT-059/Infineon/view-part/?ref=eda" (id 8) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "STANDARD" "Manufacturer Recommendations" (id 9) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "PARTREV" "G" (id 10) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "SnapEDA_Link" "https://www.snapeda.com/parts/CY8CKIT-059/Infineon/view-part/?ref=snap" (id 11) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MP" "CY8CKIT-059" (id 12) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Availability" "In Stock" (id 13) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "Cypress" (id 14) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "CY8CKIT-059_1_0"
+      (rectangle (start -20.32 -17.78) (end 20.32 15.24)
+        (stroke (width 0.1524)) (fill (type background))
+      )
+      (pin power_in line (at 25.4 12.7 180.0) (length 5.08)
+        (name "VBUS"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 25.4 -12.7 180.0) (length 5.08)
+        (name "GND_J8"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 25.4 5.08 180.0) (length 5.08)
+        (name "P12.0/GPIO/I2C_SCL"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 25.4 0.0 180.0) (length 5.08)
+        (name "P12.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 25.4 2.54 180.0) (length 5.08)
+        (name "P12.1/GPIO/I2C_SDA"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 25.4 -2.54 180.0) (length 5.08)
+        (name "P12.6/GPIO/UART_RX"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 25.4 -5.08 180.0) (length 5.08)
+        (name "P12.7/GPIO/UART_TX"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 0.0 0) (length 5.08)
+        (name "P3.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 -5.08 0) (length 5.08)
+        (name "P3.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 -2.54 0) (length 5.08)
+        (name "P3.4/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 -7.62 0) (length 5.08)
+        (name "P3.6/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 7.62 0) (length 5.08)
+        (name "P0.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -25.4 5.08 0) (length 5.08)
+        (name "P0.1/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J8.7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 25.4 -15.24 180.0) (length 5.08)
+        (name "GND_J9"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J9.2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+    (symbol "CY8CKIT-059_2_0"
+      (rectangle (start -27.94 -45.72) (end 27.94 43.18)
+        (stroke (width 0.1524)) (fill (type background))
+      )
+      (pin bidirectional line (at -33.02 -17.78 0) (length 5.08)
+        (name "P2.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -20.32 0) (length 5.08)
+        (name "P2.1/GPIO/LED"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -25.4 0) (length 5.08)
+        (name "P2.3/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -22.86 0) (length 5.08)
+        (name "P2.2/GPIO/SW"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -27.94 0) (length 5.08)
+        (name "P2.4/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -30.48 0) (length 5.08)
+        (name "P2.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -33.02 0) (length 5.08)
+        (name "P2.6/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -12.7 180.0) (length 5.08)
+        (name "P12.7/GPIO/UART_TX"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.9"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -35.56 0) (length 5.08)
+        (name "P2.7/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.8"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -10.16 180.0) (length 5.08)
+        (name "P12.6/GPIO/UART_RX"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.10"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -7.62 180.0) (length 5.08)
+        (name "P12.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.11"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -2.54 180.0) (length 5.08)
+        (name "P12.3/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.13"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -5.08 180.0) (length 5.08)
+        (name "P12.4/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.12"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 0.0 180.0) (length 5.08)
+        (name "P12.2/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.14"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 2.54 180.0) (length 5.08)
+        (name "P12.1/GPIO/I2C_SDA"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.15"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 5.08 180.0) (length 5.08)
+        (name "P12.0/GPIO/I2C_SCL"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.16"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 2.54 0) (length 5.08)
+        (name "P1.1/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.18"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 5.08 0) (length 5.08)
+        (name "P1.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.17"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 0.0 0) (length 5.08)
+        (name "P1.2/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.19"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -2.54 0) (length 5.08)
+        (name "P1.3/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.20"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -7.62 0) (length 5.08)
+        (name "P1.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.22"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -5.08 0) (length 5.08)
+        (name "P1.4/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.21"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -10.16 0) (length 5.08)
+        (name "P1.6/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.23"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 -12.7 0) (length 5.08)
+        (name "P1.7/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.24"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 33.02 -40.64 180.0) (length 5.08)
+        (name "GND_J1"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.25"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 33.02 40.64 180.0) (length 5.08)
+        (name "VDDIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J1.26"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 33.02 38.1 180.0) (length 5.08)
+        (name "VDD"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 33.02 -43.18 180.0) (length 5.08)
+        (name "GND_J2"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 33.02 -43.18 180.0) (length 5.08)
+        (name "GND_J2"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.26"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 10.16 0) (length 5.08)
+        (name "P0.7/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 33.02 0) (length 5.08)
+        (name "RESET"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 12.7 0) (length 5.08)
+        (name "P0.6/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 15.24 0) (length 5.08)
+        (name "P0.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 17.78 0) (length 5.08)
+        (name "P0.4/GPIO/BYPASSCAP"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 22.86 0) (length 5.08)
+        (name "P0.2/GPIO/BYPASSCAP"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.9"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 20.32 0) (length 5.08)
+        (name "P0.3/GPIO/BYPASSCAP"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.8"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 25.4 0) (length 5.08)
+        (name "P0.1/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.10"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at -33.02 27.94 0) (length 5.08)
+        (name "P0.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.11"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -30.48 180.0) (length 5.08)
+        (name "P15.4/GPIO/CMOD"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.13"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -33.02 180.0) (length 5.08)
+        (name "P15.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.12"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -27.94 180.0) (length 5.08)
+        (name "P15.3/GPIO/XTAL_IN"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.14"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -25.4 180.0) (length 5.08)
+        (name "P15.2/GPIO/XTAL_OUT"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.15"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -22.86 180.0) (length 5.08)
+        (name "P15.1/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.16"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 10.16 180.0) (length 5.08)
+        (name "P3.7/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.18"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 -20.32 180.0) (length 5.08)
+        (name "P15.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.17"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 12.7 180.0) (length 5.08)
+        (name "P3.6/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.19"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 15.24 180.0) (length 5.08)
+        (name "P3.5/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.20"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 20.32 180.0) (length 5.08)
+        (name "P3.3/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.22"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 17.78 180.0) (length 5.08)
+        (name "P3.4/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.21"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 22.86 180.0) (length 5.08)
+        (name "P3.2/GPIO/BYPASSCAP"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.23"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 25.4 180.0) (length 5.08)
+        (name "P3.1/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.24"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 33.02 27.94 180.0) (length 5.08)
+        (name "P3.0/GPIO"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "J2.25"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
