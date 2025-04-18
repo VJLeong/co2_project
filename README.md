@@ -8,6 +8,9 @@ This objective is achieved through proper setting up of the hardware setup and e
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
 ## Changelog
+### 18/4/2024:
+  - Added external chamber PCB schematic design into the repo
+  - Begin testing with external chamber PCB prototype
 ### 23/3/2025:
   - Updated capacitance.py to remove KNN cluster and median filtering algorithm to display raw data output in graph
   - Added heater PID bang-bang control and temperature sensor (3/3 tasks)
