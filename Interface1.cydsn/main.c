@@ -25,17 +25,18 @@ void read_temperature();
 // Global variables
 char string_1[100];
 uint8_t buffer[18]; // Buffer for 18 bytes of data
-uint16 adcResult, heaterDutyCycle;
+uint16 adcResult;
+int heaterDutyCycle;
 uint8 status;
 float  voltage;
 float  R_thermistor;
 float  temperatureK, temperatureC;
 int    tempCeil;
 // Temperature control (PID)
-float Kp = 10.0f;
-float Ki = 5.0f;
-float Kd = 1.0f;
-float dt = 1.0f; // Matches sampling period
+float Kp = 120.0f;
+float Ki = 0.0f;
+float Kd = 0.0f;
+float dt = 0.001f; // Sampling every 1ms
 float setpoint = 60.0f;
 float error, derivative, integral, prevErr;
 
@@ -91,7 +92,7 @@ void read_capacitance()
     // Calculate the capacitance connected
     double capMeasured = 1.44/((R1 + 2*R2)*pulseCount) * 1.0e9;
     // 4) That count is your frequency in Hz (since you waited 1 second)
-    sprintf(string_1,"Frequency = %lu Hz, Capacitance: %d nF\n", (unsigned long)pulseCount, (int)capMeasured);
+    sprintf(string_1,"Frequency = %lu Hz, Capacitance: %.2f nF\n", (unsigned long)pulseCount, capMeasured);
     UART_1_PutString(string_1);
 }
 
@@ -114,12 +115,12 @@ void heater()
     
     // Loop until the temperature exceeds 60°C
     // May need extra condition such that when capacitance of IDE goes down below threshold, heater stops
-    while (tempCeil <= setpoint)
+    while (tempCeil <= setpoint) // 1 to keep heating
     {
         // Read temperature and update the global variable tempCeil
         read_temperature();
         
-        error = setpoint - tempCeil;
+        error = setpoint - temperatureC;
         integral += error*dt;
         derivative = (error - prevErr)/dt;
         prevErr = error;
@@ -136,8 +137,12 @@ void heater()
             heaterDutyCycle = 0;
         }
         
+                
+        // Update PWM cycle
+        PWM_1_WriteCompare(heaterDutyCycle);
+        
         // Print out controls params
-        sprintf(string_1, "Set: %d, Temp: %d, Err: %d, PWM: %d\r\n", (int)setpoint, tempCeil, (int)ceil(error), heaterDutyCycle);
+        sprintf(string_1, "Set: %.2f, Temp: %.2f, Err: %.2f, PWM: %d, Out: %.2f\r\n", setpoint, temperatureC, error, heaterDutyCycle, output);
         UART_1_PutString(string_1);
     }
     
@@ -185,11 +190,11 @@ void read_temperature()
             temperatureC = -999.0f;  // sentinel for error
         }
 
-        /* Round up the temperature to next integer */
-        tempCeil = (int)ceilf(temperatureC);
+//        /* Round up the temperature to next integer */
+//        tempCeil = (int)ceilf(temperatureC);
 
         /* Print integer result via UART */
-        sprintf(string_1, "Current temperature: %d degrees Celsius\r\n", tempCeil);
+        sprintf(string_1, "Current temperature: %.2f degrees Celsius\r\n", temperatureC);
         UART_1_PutString(string_1);
 
         /* Delay 1 second before next reading */
@@ -221,7 +226,7 @@ int main(void) {
 //        read_sensor_data();
 //        CyDelay(1000); // Match measurement interval
 //        read_capacitance();
-//        
+////        
 //        // Temperature sensor
 //        read_temperature();
     }

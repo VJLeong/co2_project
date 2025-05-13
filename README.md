@@ -8,7 +8,10 @@ This objective is achieved through proper setting up of the hardware setup and e
 For this project, the microcontroller unit used is the PSoC 5LP module and PCB design software used is Kicad 8.
 
 ## Changelog
-### 18/4/2024:
+### 13/5/2025:
+  - Redesigned second version of external chamber PCB --  ready for remanufacturing if needed
+  - Updated PID controller for heater controls to P controller (Kp = 120.0f)
+### 18/4/2025:
   - Added external chamber PCB schematic design into the repo
   - Begin testing with external chamber PCB prototype
 ### 23/3/2025:
