@@ -1,7 +1,7 @@
 #  Automated Compensation of Environmental Changes on CO2 Gas Sensor Response
 Project Supervisor: Dr. Ajay Achath Mohanan <br>
 Project Members: Leong Van Jun, Vincent Law Yun Kae <br>
-Project Commence Date: November 2024 - Present <br>
+Project Commence Date: November 2024 - May 2025 <br>
 ## Project Description <br>
 The main objective of the project is to introduce Artificial Intelligence (AI) and/or machine learning (ML) tools to assist in analysing patterns in obtained carbon dioxide sensor readings and filtering of unwanted noises. <br>
 This objective is achieved through proper setting up of the hardware setup and environment of the carbon dioxide sensor. Which is achieved by constructing of appropriate PCB and testing through external microcontroller units. <br>
@@ -29,6 +29,8 @@ For this project, the microcontroller unit used is the PSoC 5LP module and PCB d
 ### 12/2/2025: 
   - Uploaded PSoC Creator and Kicad project files into Github repo for the first time.
   - Completed one task of three: Interface SCD30 on PCB with PSoC 5LP to obtain CO2 concentration, temperature, and relative humidity levels (rh%)
+### 20/5/2025: 
+  - Completed all tasks, further work and revision to be handled by next batch of students.
 
 ## Reference Materials
 SCD30 item website: https://sensirion.com/products/catalog/SCD30 <br>
